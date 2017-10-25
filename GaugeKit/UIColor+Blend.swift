@@ -9,33 +9,46 @@
 import UIKit
 
 func + (left: UIColor, right: UIColor) -> UIColor {
-    var leftRGBA = [CGFloat](repeating: 0.0, count: 4)
-    var rightRGBA = [CGFloat](repeating: 0.0, count: 4)
     
-    left.getRed(&leftRGBA[0], green: &leftRGBA[1], blue: &leftRGBA[2], alpha: &leftRGBA[3])
-    right.getRed(&rightRGBA[0], green: &rightRGBA[1], blue: &rightRGBA[2], alpha: &rightRGBA[3])
+    var leftRGBA1:CGFloat = 0.0
+    var leftRGBA2:CGFloat = 0.0
+    var leftRGBA3:CGFloat = 0.0
+    var leftRGBA4:CGFloat = 0.0
+    
+    var rightRGBA1:CGFloat = 0.0
+    var rightRGBA2:CGFloat = 0.0
+    var rightRGBA3:CGFloat = 0.0
+    var rightRGBA4:CGFloat = 0.0
+    
+    left.getRed(&leftRGBA1, green: &leftRGBA2, blue: &leftRGBA3, alpha: &leftRGBA4)
+    right.getRed(&rightRGBA1, green: &rightRGBA2, blue: &rightRGBA3, alpha: &rightRGBA4)
     
     return UIColor(
-        red: max(leftRGBA[0], rightRGBA[0]),
-        green: max(leftRGBA[1], rightRGBA[1]),
-        blue: max(leftRGBA[2], rightRGBA[2]),
-        alpha: max(leftRGBA[3], rightRGBA[3])
+        red: max(leftRGBA1, rightRGBA1),
+        green: max(leftRGBA2, rightRGBA2),
+        blue: max(leftRGBA3, rightRGBA3),
+        alpha: max(leftRGBA4, rightRGBA4)
     )
 }
 
 func * (left: CGFloat, right: UIColor) -> UIColor {
-    var rightRGBA = [CGFloat](repeating: 0.0, count: 4)
     
-    right.getRed(&rightRGBA[0], green: &rightRGBA[1], blue: &rightRGBA[2], alpha: &rightRGBA[3])
+    var rightRGBA1:CGFloat = 0.0
+    var rightRGBA2:CGFloat = 0.0
+    var rightRGBA3:CGFloat = 0.0
+    var rightRGBA4:CGFloat = 0.0
+    
+    right.getRed(&rightRGBA1, green: &rightRGBA2, blue: &rightRGBA3, alpha: &rightRGBA4)
     
     return UIColor(
-        red: rightRGBA[0] * left,
-        green: rightRGBA[1] * left,
-        blue: rightRGBA[2] * left,
-        alpha: rightRGBA[3]
+        red: rightRGBA1 * left,
+        green: rightRGBA2 * left,
+        blue: rightRGBA3 * left,
+        alpha: rightRGBA4
     )
 }
 
 func * (left: UIColor, right: CGFloat) -> UIColor {
     return right * left
 }
+
